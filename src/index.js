@@ -20,9 +20,7 @@ endpoints.forEach((endpoint) => {
       const response = await feedid[endpoint.primary][category]();
       return res.send(response);
     } catch (error) {
-      return res
-        .status(404)
-        .send({ data: null, message: 'Not found', success: false });
+      return res.status(404).send({ data: null, message: 'Not found', success: false });
     }
   });
 });
@@ -36,11 +34,9 @@ app.get('/', (req, res) => {
 });
 
 app.all('*', (req, res) => {
-  return res
-    .status(404)
-    .send({ data: null, message: 'Not found', success: false });
+  return res.status(404).send({ data: null, message: 'Not found', success: false });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on ports ${PORT}`);
 });
